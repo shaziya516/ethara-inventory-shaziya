@@ -19,10 +19,10 @@ A full-stack business management portal for managing products, customers, and or
 
 | Field | Value |
 |-------|-------|
-| Email | `admin@example.com` |
+| Email | `admin@ethara.in` |
 | Password | `Admin@123` |
 
-> These are created automatically when you run `python seed.py`.  
+> These are created automatically when you run `python seed.py`.
 > **Change the password immediately after first login in production.**
 
 ---
@@ -70,6 +70,7 @@ A full-stack business management portal for managing products, customers, and or
 ## 🏗️ Tech Stack
 
 ### Backend
+
 | Technology | Purpose |
 |-----------|---------|
 | Flask 3.0 | Web framework |
@@ -83,6 +84,7 @@ A full-stack business management portal for managing products, customers, and or
 | Gunicorn | Production WSGI server |
 
 ### Frontend
+
 | Technology | Purpose |
 |-----------|---------|
 | React 18 + Vite | UI framework |
@@ -130,8 +132,8 @@ ethara_varun_assesmnet/
 │   │   ├── api/                 # Axios API modules
 │   │   ├── components/          # Layout, Sidebar, ProtectedRoute
 │   │   ├── context/             # AuthContext
-│   │   ├── pages/               # Login, Dashboard, Products, Customers, Orders
-│   │   ├── types/               # TypeScript interfaces
+│   │   ├── pages/                # Login, Dashboard, Products, Customers, Orders
+│   │   ├── types/                # TypeScript interfaces
 │   │   ├── App.tsx
 │   │   └── main.tsx
 │   ├── tailwind.config.js
@@ -170,24 +172,20 @@ cd backend
 
 # 1. Create virtual environment
 python -m venv venv
-
-# Windows
-venv\Scripts\activate
-
-# macOS/Linux
-# source venv/bin/activate
+venv\Scripts\activate        # Windows
+# source venv/bin/activate   # macOS/Linux
 
 # 2. Install dependencies
 pip install -r requirements.txt
 
 # 3. Create your .env file
-copy .env.example .env     # Windows
-# cp .env.example .env     # macOS/Linux
+copy .env.example .env       # Windows
+# cp .env.example .env       # macOS/Linux
 
 # 4. Edit .env with your DB credentials:
-#    DATABASE_URL=postgresql://postgres:yourpassword@localhost:5432/inventory_db
-#    SECRET_KEY=any-random-string
-#    JWT_SECRET_KEY=another-random-string
+# DATABASE_URL=postgresql://postgres:yourpassword@localhost:5432/inventory_db
+# SECRET_KEY=any-random-string
+# JWT_SECRET_KEY=another-random-string
 
 # 5. Run database migrations
 flask --app run db init
@@ -214,8 +212,8 @@ cd frontend
 npm install
 
 # 2. Create .env file
-copy .env.example .env     # Windows
-# cp .env.example .env     # macOS/Linux
+copy .env.example .env       # Windows
+# cp .env.example .env       # macOS/Linux
 
 # Contents of .env:
 # VITE_API_URL=http://localhost:5000
@@ -235,9 +233,11 @@ npm run dev
 - Production: `https://your-api.onrender.com`
 
 ### Authentication
+
 All endpoints except `/api/auth/login` and `/api/auth/register` require:
+
 ```
-Authorization: Bearer <JWT_TOKEN>
+Authorization: Bearer <token>
 ```
 
 ---
@@ -254,7 +254,7 @@ Authorization: Bearer <JWT_TOKEN>
 **Login request:**
 ```json
 {
-  "email": "admin@example.com",
+  "email": "admin@ethara.in",
   "password": "Admin@123"
 }
 ```
@@ -266,7 +266,7 @@ Authorization: Bearer <JWT_TOKEN>
   "user": {
     "id": "...",
     "username": "admin",
-    "email": "admin@example.com",
+    "email": "admin@ethara.in",
     "role": "admin"
   }
 }
@@ -383,18 +383,21 @@ Authorization: Bearer <JWT_TOKEN>
 5. Set **Start Command**: `gunicorn "app:create_app('production')" --bind 0.0.0.0:$PORT`
 6. Add a **PostgreSQL database** on Render (free tier) → copy the connection string
 7. Set environment variables in the Render dashboard:
-   ```
-   FLASK_ENV=production
-   DATABASE_URL=<paste Render PostgreSQL URL>
-   SECRET_KEY=<generate a strong random string>
-   JWT_SECRET_KEY=<generate another random string>
-   CORS_ORIGINS=https://your-frontend.vercel.app
-   ```
+
+```
+FLASK_ENV=production
+DATABASE_URL=<your-render-postgres-url>
+SECRET_KEY=<generate-a-strong-secret>
+JWT_SECRET_KEY=<generate-a-strong-secret>
+CORS_ORIGINS=https://your-frontend.vercel.app
+```
+
 8. After first deploy, open Render Shell and run:
-   ```bash
-   flask --app run db upgrade
-   python seed.py
-   ```
+
+```bash
+flask --app run db upgrade
+python seed.py
+```
 
 ---
 
@@ -404,9 +407,11 @@ Authorization: Bearer <JWT_TOKEN>
 2. Import your GitHub repo, set **Root Directory** to `frontend/`
 3. Framework preset: **Vite**
 4. Add environment variable:
-   ```
-   VITE_API_URL=https://your-backend.onrender.com
-   ```
+
+```
+VITE_API_URL=https://your-backend.onrender.com
+```
+
 5. Click **Deploy** ✅
 
 ---
@@ -414,6 +419,7 @@ Authorization: Bearer <JWT_TOKEN>
 ## 🛠️ Environment Variables
 
 ### Backend `.env`
+
 ```env
 FLASK_ENV=development
 SECRET_KEY=your-super-secret-key-change-in-production
@@ -423,6 +429,7 @@ CORS_ORIGINS=http://localhost:5173
 ```
 
 ### Frontend `.env`
+
 ```env
 VITE_API_URL=http://localhost:5000
 ```
@@ -434,7 +441,7 @@ VITE_API_URL=http://localhost:5000
 Running `python seed.py` creates:
 
 **Admin user:**
-- Email: `admin@example.com`
+- Email: `admin@ethara.in`
 - Password: `Admin@123`
 
 **8 Sample Products** across Electronics, Office, Stationery, Furniture categories
@@ -457,7 +464,7 @@ Running `python seed.py` creates:
 
 ## 👨‍💻 Author
 
-Built for the Ethara technical assessment by **Varun**.  
+Built for the Ethara technical assessment by **Shaziya Malik**.
 Submission deadline: **11/07/2026 (Saturday)**
 
 ---
@@ -465,5 +472,3 @@ Submission deadline: **11/07/2026 (Saturday)**
 ## 📄 License
 
 MIT
-#   e t h a r a - i n v e n t o r y - s h a z i y a  
- 
