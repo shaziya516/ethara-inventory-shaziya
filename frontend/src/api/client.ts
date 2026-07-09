@@ -1,6 +1,6 @@
 import axios, { AxiosError } from 'axios';
 
-const BASE_URL = import.meta.env.VITE_API_URL;
+const BASE_URL = import.meta.env.VITE_API_URL || 'https://ethara-inventory-shaziya.onrender.com';
 
 export const api = axios.create({
   baseURL: BASE_URL,
