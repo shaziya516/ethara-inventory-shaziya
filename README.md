@@ -19,7 +19,7 @@ A full-stack business management portal for managing products, customers, and or
 
 | Field | Value |
 |-------|-------|
-| Email | `admin@ethara.in` |
+| Email | `admin@ethara.ai` |
 | Password | `Admin@123` |
 
 > These are created automatically when you run `python seed.py`.
