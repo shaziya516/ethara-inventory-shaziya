@@ -29,10 +29,6 @@ def seed():
 
 
 
-            if not Customer.query.filter_by(email=cd["email"]).first():
-                customer = Customer(**cd)
-                db.session.add(customer)
-                print(f"  ✓ Customer: {cd['name']}")
 
         db.session.commit()
         print("\n✅ Seeding complete!")
