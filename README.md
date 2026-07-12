@@ -102,7 +102,7 @@ A full-stack business management portal for managing products, customers, and or
 ## 📂 Project Structure
 
 ```
-ethara_varun_assesmnet/
+ethara_shaziya_assesment/
 ├── backend/
 │   ├── app/
 │   │   ├── __init__.py          # App factory
